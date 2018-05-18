@@ -3,7 +3,10 @@
  A simple tool to fuck baidu pan password\
 ![Language][1]
 [![GitHub release][2]][3]
-[![Github All Releases][4]][5]
+[![Github Download][4]][5]
+![License][6]
+
+本软件基于GPL-3.0开源协议，简单来讲，如果您（部分）使用本软件的代码，您必须在分发软件时提供源代码（开源），对代码修改部分需要进行声明，修改后的软件也要使用GPL-3.0开源协议
 
 ## Feature
 - 多线程破解
@@ -26,7 +29,7 @@
 ## 软件使用
 ### 参数说明：
 - URL地址：保证格式为`https://pan.baidu.com/share/init?xxx`即可，如果不是请在浏览器打开看看会不会自动跳转。
-- 破解字典文件名：包含待尝试密码的文件名，文件格式一行一个密码，默认为目录下的`allpwd.dic`文件
+- 破解字典文件名：包含待尝试密码的文件名，文件格式一行一个密码，默认为目录下的`allpwd.dic`文件，可以使用superdic等软件生成
 - 忽略密码文件名：包含所有跳过的密码的文件名，文件格式一行一个密码，默认不忽略，程序已经尝试的密码默认记录在`log.dic`文件中
 - 延时毫秒数：每个线程每两次尝试延时毫秒（建议50-100）
 - 线程数：尝试线程数（根据配置建议200-500）
@@ -38,8 +41,17 @@
 - 程序默认日志文件为`log.dic`，内容为尝试失败的密码，格式和破解字典相同，可以直接用于之后程序的忽略密码文件名参数。写入方式为追加写入，不会对已有数据造成影响。
 - 找到的密码将会输出在屏幕上并且保存在`password.ans`文件中，使用文本编辑器打开即可看到。
 
+## 文件目录
+- .gitignore：Git忽略文件配置
+- LICENSE：开源协议
+- README.md：本说明
+- allpwd.dic：包含全部可能密码的字典文件
+- crack.py：破解程序主文件
+- release.bat：pyinstaller批处理生成exe文件
+
 [1]:https://img.shields.io/badge/Language-Python3-red.svg
 [2]:https://img.shields.io/github/release/mxwxz/FuckBaiduPanPwd.svg
 [3]:https://github.com/MXWXZ/FuckBaiduPanPwd/releases
 [4]:https://img.shields.io/github/downloads/mxwxz/FuckBaiduPanPwd/total.svg
 [5]:https://github.com/MXWXZ/FuckBaiduPanPwd/releases
+[6]:https://img.shields.io/badge/License-GPL--3.0-yellow.svg
